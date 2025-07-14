@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Race Learning Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="race.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Race Lane on the left -->
+        <div class="race-lane">
+            <div class="stripes lane-1"></div>
+            <div class="stripes lane-1 stripe-2"></div>
+            <div class="stripes lane-1 stripe-3"></div>
+
+            <!-- Lane 2 -->
+            <div class="stripes lane-2"></div>
+            <div class="stripes lane-2 stripe-2"></div>
+            <div class="stripes lane-2 stripe-3"></div>
+
+            <!-- Lane 3 -->
+            <div class="stripes lane-3"></div>
+            <div class="stripes lane-3 stripe-2"></div>
+            <div class="stripes lane-3 stripe-3"></div>
+
+            <!-- Lane 4 -->
+            <div class="stripes lane-4"></div>
+            <div class="stripes lane-4 stripe-2"></div>
+            <div class="stripes lane-4 stripe-3"></div>
+
+            <div class="finish-line"></div>
+            <div class="car" id="user-car"></div>
+            <div class="car" id="car-1"></div>
+            <div class="car" id="car-2"></div>
+            <div class="car" id="car-3"></div>
+            <div class="car" id="car-4"></div>
+            <div class="stripes"></div> <!-- Moving striped lines -->
+        </div>
+
+        <!-- Question area on the right -->
+        <div class="question-area">
+            <h1>Answer the Question</h1>
+            <div id="question">2 + 2 = ?</div>
+            <input type="text" id="answer" placeholder="Your answer">
+            <button id="submit-answer">Submit</button>
+            <p id="feedback"></p>
+            <p id="celebration" class="celebration-message"></p>
+        </div>
+    </div>
+
+    <!-- Confetti Container -->
+    <div id="confetti-container"></div>
+
+    <script src="race.js"></script>
+</body>
+</html>

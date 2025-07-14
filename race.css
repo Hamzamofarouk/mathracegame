@@ -1,0 +1,261 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #87CEEB; /* Light blue background for a friendly feel */
+    color: #fff; /* White text for visibility */
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Hide confetti outside the screen */
+}
+
+.game-container {
+    display: flex;
+    width: 80%;
+    height: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 25px 5px rgba(255, 255, 0, 1); /* More intense yellow */
+}
+
+.race-lane {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background-color: #555; /* Dark grey to resemble asphalt */
+    overflow: hidden;
+    border: 5px solid #fff;
+    border-right: none;
+}
+
+.car {
+    position: absolute;
+    width: 50px;
+    height: 80px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+}
+
+#user-car {
+    bottom: 5%;
+    left: 50%;
+    margin-left: -25px;
+    background-image: url('main.png');
+    transition: bottom 0.6s ease-out;
+    z-index: 3;
+}
+
+#car-1, #car-2, #car-3, #car-4 {
+    bottom: 20%;
+    left: 10%;
+    background-image: url('side.png');
+}
+
+#car-1 {
+    bottom: 15%;
+    left: 6%;
+}
+
+#car-4 {
+    bottom: 35%;
+    left: 86%;
+}
+
+#car-3 {
+    bottom: 70%;
+    left: 66%;
+}
+
+#car-2 {
+    bottom: 50%;
+    left: 26%;
+}
+
+/* Stripe properties */
+.stripes {
+    position: absolute;
+    width: 4px;
+    height: 30%;
+    background-color: white;
+    animation: moveStripes 1s infinite linear;
+    transform: translateX(-50%);
+}
+
+.lane-1 { left: 20%; }
+.lane-2 { left: 40%; }
+.lane-3 { left: 60%; }
+.lane-4 { left: 80%; }
+
+.stripe-2 { animation-delay: -0.33s; }
+.stripe-3 { animation-delay: -0.66s; }
+
+@keyframes moveStripes {
+    0% { top: -30%; }
+    100% { top: 110%; }
+}
+
+.question-area {
+    padding: 20px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border: 5px solid #fff;
+    border-left: none;
+}
+
+#question {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#answer {
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    width: 220px;
+    border-radius: 8px;
+    font-family: 'Press Start 2P', cursive;
+    border: 3px solid #333;
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0 0 5px #FFD700, 0 0 10px #FFB900;
+}
+
+#answer:focus {
+    outline: none;
+    transform: scale(1.05);
+    box-shadow: 0 0 8px #FFD700, 0 0 15px #FFB900;
+}
+
+button {
+    background-color: #FFD700;
+    color: #333;
+    border: 4px solid #333;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 0 0px #000, 0 0 10px #FFB900, 0 0 20px #FFD700;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 5px #FFB900, 0 0 15px #FFD700, 0 0 25px #FF8C00;
+}
+
+button:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 5px #FFB900;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: #333;
+    text-align: center;
+}
+
+.finish-line {
+    position: absolute;
+    top: -3%;
+    width: 100%;
+    height: 60px;
+    background-image: url('finish.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#feedback {
+    font-size: 24px;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 10px;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+.correct {
+    color: #32CD32;
+    background-color: #000;
+    border: 3px solid #32CD32;
+}
+
+.incorrect {
+    color: #FF4500;
+    background-color: #000;
+    border: 3px solid #FF4500;
+    box-shadow: 0 0 10px #FF4500, 0 0 20px #FF6347;
+}
+
+/* Celebration message styles */
+.celebration-message {
+    display: none;
+    font-size: 30px;
+    color: gold;
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Press Start 2P', cursive;
+    animation: celebration 2s ease-in-out forwards;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Celebration animation */
+@keyframes celebration {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Confetti Styles */
+/* Confetti Styles */
+/* Confetti Styles */
+/* Confetti Styles */
+.confetti {
+    position: absolute;
+    animation: fall 3s linear infinite;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Slight shadow for effect */
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh); /* Start from above the screen */
+    }
+    100% {
+        transform: translateY(100vh); /* Fall to the bottom of the page */
+    }
+}
